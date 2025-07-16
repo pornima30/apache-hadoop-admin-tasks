@@ -1,35 +1,27 @@
 # Apache Hadoop Admin Tasks
 
-This project contains hands-on Apache Hadoop administration tasks performed as part of my training and project work.
+This project demonstrates core Hadoop administration tasks using HDFS and S3 integration, including:
 
-## 📁 Project Structure
+- S3 to HDFS data pipeline
+- Archiving with `.har` files
+- Trash & recovery setup
+- Distributed copy with `distcp`
+- Setting replication and block size
 
-| Folder | Contents |
-|--------|----------|
-| `scripts/` | Collected shell commands from lectures and practical sessions |
-| `terminal-history/` | Raw terminal history during setup and task execution |
-| `screenshots/` | Visual evidence of task completion |
-| `notes/` | Explanations of key tasks and steps taken |
+---
 
-## 🔧 Covered Tasks
+## 📁 Folder Structure
 
-- S3 to HDFS file transfer using `fs -cp` and `distcp`
-- Hadoop Archival using `.har` format
-- Trash management & checkpoint configuration
-- Setting replication factors
-- Distributed copy to S3
-- Customizing block size
+- `commands.txt` – Terminal history of executed commands
+- `scripts/` – All edited Hadoop config files
+- `notes/` – Step-by-step documentation
+- `screenshots/` – Output screenshots
 
-## 🛠️ Tools Used
+---
+
+## 🔧 Technologies Used
 
 - Hadoop 3.3.5
-- Amazon S3 (via S3A connector)
-- Ubuntu EC2 Instance
-- HDFS, YARN, MapReduce
-
-## ✨ Sample Commands
-
-```bash
-hadoop distcp /user/hduser/hadoop-3.3.5.tar.gz s3a://clouderarepomy25/
-hdfs dfs -setrep -w 4 /user/hduser/abc
-hadoop archive -archiveName myarch.har -p /user/ubuntu /user/hduser
+- HDFS
+- AWS S3 (via `s3a`)
+- YARN
