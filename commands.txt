@@ -1,0 +1,33 @@
+# Apache Hadoop Admin – Terminal Command History
+
+cd
+ssh localhost
+wget https://dlcdn.apache.org/hadoop/common/stable/hadoop-3.3.5.tar.gz
+tar -xzvf hadoop-3.3.5.tar.gz
+sudo mv hadoop-3.3.5 /usr/local/hadoop
+sudo chown hduser:hadoop -R /usr/local/hadoop
+nano ~/.bashrc
+source ~/.bashrc
+echo $PATH
+cd /usr/local/hadoop/etc/hadoop/
+nano hadoop-env.sh
+sudo mkdir /var/log/hadoop
+sudo chown hduser:hadoop -R /var/log/hadoop
+nano core-site.xml
+nano mapred-site.xml
+sudo mkdir -p /usr/local/hadoop_store/hdfs/namenode
+sudo mkdir -p /usr/local/hadoop_store/hdfs/datanode
+sudo chown -R hduser:hadoop /usr/local/hadoop_store
+nano hdfs-site.xml
+nano yarn-site.xml
+hdfs namenode -format
+start-dfs.sh
+start-yarn.sh
+jps
+hdfs dfs -mkdir /user
+hdfs dfs -mkdir /user/hduser
+hdfs dfs -put hadoop-3.3.5.tar.gz /user/hduser
+hdfs dfs -cp /user/hduser/hadoop-3.3.5.tar.gz s3a://clouderarepomy25/
+hadoop archive -archiveName myarch.har -p /user/ubuntu /user/hduser
+hdfs dfs -rm -r /user/hduser/myarch.har
+hdfs dfs -setrep -w 4 /user/hduser/hadoop-3.3.5.tar.gz
